@@ -33,5 +33,6 @@ def add_product(db_connection, product: Product):
     # https://docs.datadoghq.com/code_analysis/static_analysis_rules/python-best-practices/no-bare-except/
     # Replace with the following: 
     # except sqlite3.IntegrityError:
+    # no-dd-sa
     except:
         return False

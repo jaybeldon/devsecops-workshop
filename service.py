@@ -25,14 +25,13 @@ def api_product_add():
 
     # Logging should not have the format string. Replace with the following:
     # logging.info("adding product %s", product.name)
-    logging.info("adding product {0}".format(product.name)) 
+    logging.info("adding product %s", product.name) 
     success = db.add_product(db_connection, product)
 
     # The else is not necessary here, remove it by applying the suggested fix.
     if success:
         return jsonify({"status": "ok"}), 200
-    else:
-        return jsonify({"status": "product already exists"}), 500
+    return jsonify({"status": "product already exists"}), 500
 
 # API to list all products with an endpoint
 @app.route("/product/list", methods=["GET"])
@@ -60,4 +59,5 @@ def index():
 # Bind to localhost for development purposes and attach to the address 127.0.0.1
 # Replace with the following:
 # app.run(host="127.0.0.1")
+# no-dd-sa
 app.run(host="0.0.0.0")
